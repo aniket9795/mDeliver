@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Server AdminHost="clm-aus-022395.bmc.com" AdminPassword="e1BIRTF9U1BSbTA3TTNlcHM9" AdminPort="8887" AdminUser="admin" AppserverVendor="websphere90" BMAVersion="4.8.0" OriginalBMAVersion="4.8.0" UseSecureConnection="false">
+  <TokenSet Description="Default Token Set" IsDefault="true" Name="Default Tokens"/>
+  <SnapshotOutputFile Path="\Release\WAS_ND_9_Snap">
+    <FilenamePattern/>
+  </SnapshotOutputFile>
+  <SnapshotFilters/>
+  <ReportOutputFile/>
+  <Node Name="AppSrv01-Node" ClassificationRef="#//@websphereServer/@classifications.0"/>
+  <Node Name="Dmgr01-Node" ClassificationRef="#//@websphereServer/@classifications.1"/>
+  <SnapshotNode Name="AppSrv01-Node"/>
+  <InstallNode Name="AppSrv01-Node"/>
+  <Clusters/>
+  <TrustStore TrustStorePassword="e1BIRTF9NzRCRWQ1SEN3dmM9" useRetrieveSigners="true"/>
+  <SslProperties/>
+  <NodeClassification Name="APPLICATION_SERVER2">
+    <NodeRef>#//@websphereServer/@nodes.0</NodeRef>
+  </NodeClassification>
+  <NodeClassification Name="APPLICATION_SERVER1">
+    <NodeRef>#//@websphereServer/@nodes.1</NodeRef>
+  </NodeClassification>
+</Server>

@@ -1,0 +1,22 @@
+API_SERVER_URI=https://127.0.0.1:8043/
+JVMARGS="-Dphurnace.maxTaskWait=12000000 -Dcom.ibm.wsspi.amm.merge.ignoreValidationExceptions=true"
+ph.allowEmptyTokens=true
+ANT_LAUNCH_LOG_LEVEL=DEBUG
+MAX_TASK_WAIT=240000
+ph.totalTranLifetimeTimeout=1770000
+jvmarg.total_tran_lifetime_timeout=1850000 
+
+
+#APP_SERVER_HOME=D:/Program Files/IBM/WebSphere/AppServer
+#APP_SERVER_HOME=D:/Client_libs/WAS_9/Windows/AppClient
+APP_SERVER_HOME=D:/Program Files/IBM/WebSphere/AppServer855
+#APP_SERVER_HOME=D:/Program Files/IBM/WebSphere/AppServer80
+#APP_SERVER_HOME=D:/Program Files/IBM/WebSphere/AppServer70
+#APP_SERVER_HOME=D:/Jboss-Servers/jboss-eap-6.3
+#APP_SERVER_HOME=C:/Program Files/IBM/MQ
+WORKING_DIR_BASE=D:/Program Files/bmc
+LICENSE_FILE=D:/BMALicense/phurnace.lic 
+DELIVER_JAVA_HOME=D:/Program Files/Harman/mDeliver87/jre
+#PATH=D:/Program Files/Harman/mDeliver87/bmaservice/bmaservice.properties
+PORT_RULES_FILE=D:/portrules.properties
+#API_SERVER_LOG_LEVEL=DEBUG

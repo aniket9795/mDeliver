@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="UTF-8"?><Phurnace BMAVersion="4.8.0" OriginalBMAVersion="4.8.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.phurnace.com/schemas/was85">
+  
+<AdminTaskGroup type="PolicySetManagement">
+  
+<AdminTask command="PolicySet">
+      <Option name="version" value="7.0.0.0"/>
+      <Option name="name" value="Policy1"/>
+      <Option name="default" value="false"/>
+      <Option name="type" value="application"/>
+      <Option name="description" value=""/>
+    </AdminTask>
+<AdminTask command="PolicySetAttachement">
+   <Option name="policySet" value="Policy1"/>
+   <Option name="policyApplied" value="client"/>
+   <Option name="applicationName" value="DocCambioVersoEAR"/>
+   <Option name="directAttachment" value="true"/>
+   <Option name="attachmentType" value="client"/>
+   <Option name="resource" value="WebService:/DocCambioVerso.war:{http://gestionedocumentale.sogei.it/documentale/wscombination}CombinationService"/>
+   <Option name="bindingScope" value="domain"/>
+   <Option name="providerPolicySet" value="false"/>
+  </AdminTask>
+  <AdminTask command="PolicySetAttachement">
+   <Option name="policySet" value="Policy1"/>
+   <Option name="policyApplied" value="client"/>
+   <Option name="applicationName" value="DocCambioVersoEAR"/>
+   <Option name="directAttachment" value="true"/>
+   <Option name="attachmentType" value="client"/>
+   <Option name="resource" value="WebService:/DocCambioVerso.war:{http://www.sogei.it/Protocollazione/}Protocollazione"/>
+   <Option name="bindingScope" value="domain"/>
+   <Option name="providerPolicySet" value="false"/>
+  </AdminTask>
+
+<AdminTask command="ApplicationBinding">
+      <Option name="policySet" value="Policy1"/>
+      <Option name="policySetAttachmentResource" value="WebService:/"/>
+      <Option name="name" value="ENT-SA-0243BindingPolicy1"/>
+      <Option name="applicationName" value="DocCambioVersoEAR"/>
+      <Option name="attachmentType" value="client"/>
+      <Step name="WSSecurity">
+        <Row>
+          <Option name="application.securityoutboundbindingconfig.signinginfo_0.signingpartreference_0.transform_0.algorithm" value="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.classname" value="com.ibm.ws.wssecurity.wssapi.token.impl.CommonTokenGenerator"/>
+          <Option name="application.securityoutboundbindingconfig.keyinfo_0.classname" value="com.ibm.ws.wssecurity.wssapi.CommonContentGenerator"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.valuetype.uri" value=""/>
+          <Option name="application.name" value="application"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.valuetype.uri" value=""/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.name" value="AsymmetricBindingInitiatorSignatureToken0"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.keystore.keystoreref" value="name=CivisConsumer managementScope=(cell):EntTelVal:(cluster):Civis"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.key.name" value="CN=ENT-SA-0243, OU=Service Consumer, O=Sogei, C=IT"/>
+          <Option name="application.securityoutboundbindingconfig.signinginfo_0.signingkeyinfo_0.reference" value="token_firma"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.classname" value="com.ibm.ws.wssecurity.wssapi.token.impl.CommonTokenGenerator"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.key.alias" value="{09ff0b81-ee75-42c0-a92d-0da041906b0d}"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.properties_0.value" value="true"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.name" value="request:X509Token"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.key.keypass" value="fWOAD+DA"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.key.name" value="CN=ENT-SA-0243, OU=Service Consumer, O=Sogei, C=IT"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.classname" value="com.ibm.websphere.wssecurity.callbackhandler.X509GenerateCallbackHandler"/>
+          <Option name="application.securityoutboundbindingconfig.keyinfo_0.name" value="token_firma"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.valuetype.localname" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.valuetype.localname" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+          <Option name="application.securityoutboundbindingconfig.keyinfo_0.type" value="STRREF"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.key.alias" value="{09ff0b81-ee75-42c0-a92d-0da041906b0d}"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.classname" value="com.ibm.websphere.wssecurity.callbackhandler.X509GenerateCallbackHandler"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.jaasconfig.configname" value="system.wss.generate.x509"/>
+          <Option name="application.securityoutboundbindingconfig.keyinfo_0.tokenreference.reference" value="AsymmetricBindingInitiatorSignatureToken0"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.key.keypass" value="fWOAD+DA"/>
+          <Option name="application.securityoutboundbindingconfig.signinginfo_0.name" value="Firma Body"/>
+          <Option name="application.securityoutboundbindingconfig.signinginfo_0.order" value="1"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.properties_0.name" value="com.ibm.ws.console.webservices.policyset.protectionToken"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.keystore.keystoreref" value="name=CivisConsumer managementScope=(cell):EntTelVal:(cluster):Civis"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.jaasconfig.configname" value="system.wss.generate.x509"/>
+        </Row>
+      </Step>
+    </AdminTask>
+<AdminTask command="ApplicationBinding">
+      <Option name="policySet" value="Policy1"/>
+      <Option name="policySetAttachmentResource" value="WebService:/DocCambioVerso.war:{http://gestionedocumentale.sogei.it/documentale/wscombination}CombinationService"/>
+      <Option name="name" value="ENT-SA-0243BindingPolicy1"/>
+      <Option name="applicationName" value="DocCambioVersoEAR"/>
+      <Option name="attachmentType" value="client"/>
+      <Step name="WSSecurity">
+        <Row>
+          <Option name="application.securityoutboundbindingconfig.signinginfo_0.signingpartreference_0.transform_0.algorithm" value="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.classname" value="com.ibm.ws.wssecurity.wssapi.token.impl.CommonTokenGenerator"/>
+          <Option name="application.securityoutboundbindingconfig.keyinfo_0.classname" value="com.ibm.ws.wssecurity.wssapi.CommonContentGenerator"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.valuetype.uri" value=""/>
+          <Option name="application.name" value="application"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.valuetype.uri" value=""/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.name" value="AsymmetricBindingInitiatorSignatureToken0"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.keystore.keystoreref" value="name=CivisConsumer managementScope=(cell):EntTelVal:(cluster):Civis"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.key.name" value="CN=ENT-SA-0243, OU=Service Consumer, O=Sogei, C=IT"/>
+          <Option name="application.securityoutboundbindingconfig.signinginfo_0.signingkeyinfo_0.reference" value="token_firma"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.classname" value="com.ibm.ws.wssecurity.wssapi.token.impl.CommonTokenGenerator"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.key.alias" value="{09ff0b81-ee75-42c0-a92d-0da041906b0d}"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.properties_0.value" value="true"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.name" value="request:X509Token"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.key.keypass" value="fWOAD+DA"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.key.name" value="CN=ENT-SA-0243, OU=Service Consumer, O=Sogei, C=IT"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.classname" value="com.ibm.websphere.wssecurity.callbackhandler.X509GenerateCallbackHandler"/>
+          <Option name="application.securityoutboundbindingconfig.keyinfo_0.name" value="token_firma"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.valuetype.localname" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.valuetype.localname" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+          <Option name="application.securityoutboundbindingconfig.keyinfo_0.type" value="STRREF"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.key.alias" value="{09ff0b81-ee75-42c0-a92d-0da041906b0d}"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.classname" value="com.ibm.websphere.wssecurity.callbackhandler.X509GenerateCallbackHandler"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.jaasconfig.configname" value="system.wss.generate.x509"/>
+          <Option name="application.securityoutboundbindingconfig.keyinfo_0.tokenreference.reference" value="AsymmetricBindingInitiatorSignatureToken0"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.key.keypass" value="fWOAD+DA"/>
+          <Option name="application.securityoutboundbindingconfig.signinginfo_0.name" value="Firma Body"/>
+          <Option name="application.securityoutboundbindingconfig.signinginfo_0.order" value="1"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.properties_0.name" value="com.ibm.ws.console.webservices.policyset.protectionToken"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.keystore.keystoreref" value="name=CivisConsumer managementScope=(cell):EntTelVal:(cluster):Civis"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.jaasconfig.configname" value="system.wss.generate.x509"/>
+        </Row>
+      </Step>
+    </AdminTask>
+
+<AdminTask command="ApplicationBinding">
+      <Option name="policySet" value="Policy1"/>
+      <Option name="policySetAttachmentResource" value="WebService:/DocCambioVerso.war:{http://www.sogei.it/Protocollazione/}Protocollazione"/>
+      <Option name="name" value="ENT-SA-0243BindingPolicy1"/>
+      <Option name="applicationName" value="DocCambioVersoEAR"/>
+      <Option name="attachmentType" value="client"/>
+      <Step name="WSSecurity">
+        <Row>
+          <Option name="application.securityoutboundbindingconfig.signinginfo_0.signingpartreference_0.transform_0.algorithm" value="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.classname" value="com.ibm.ws.wssecurity.wssapi.token.impl.CommonTokenGenerator"/>
+          <Option name="application.securityoutboundbindingconfig.keyinfo_0.classname" value="com.ibm.ws.wssecurity.wssapi.CommonContentGenerator"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.valuetype.uri" value=""/>
+          <Option name="application.name" value="application"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.valuetype.uri" value=""/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.name" value="AsymmetricBindingInitiatorSignatureToken0"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.keystore.keystoreref" value="name=CivisConsumer managementScope=(cell):EntTelVal:(cluster):Civis"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.key.name" value="CN=ENT-SA-0243, OU=Service Consumer, O=Sogei, C=IT"/>
+          <Option name="application.securityoutboundbindingconfig.signinginfo_0.signingkeyinfo_0.reference" value="token_firma"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.classname" value="com.ibm.ws.wssecurity.wssapi.token.impl.CommonTokenGenerator"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.key.alias" value="{09ff0b81-ee75-42c0-a92d-0da041906b0d}"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.properties_0.value" value="true"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.name" value="request:X509Token"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.key.keypass" value="fWOAD+DA"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.key.name" value="CN=ENT-SA-0243, OU=Service Consumer, O=Sogei, C=IT"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.classname" value="com.ibm.websphere.wssecurity.callbackhandler.X509GenerateCallbackHandler"/>
+          <Option name="application.securityoutboundbindingconfig.keyinfo_0.name" value="token_firma"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.valuetype.localname" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.valuetype.localname" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+          <Option name="application.securityoutboundbindingconfig.keyinfo_0.type" value="STRREF"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.key.alias" value="{09ff0b81-ee75-42c0-a92d-0da041906b0d}"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.classname" value="com.ibm.websphere.wssecurity.callbackhandler.X509GenerateCallbackHandler"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.jaasconfig.configname" value="system.wss.generate.x509"/>
+          <Option name="application.securityoutboundbindingconfig.keyinfo_0.tokenreference.reference" value="AsymmetricBindingInitiatorSignatureToken0"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_1.callbackhandler.key.keypass" value="fWOAD+DA"/>
+          <Option name="application.securityoutboundbindingconfig.signinginfo_0.name" value="Firma Body"/>
+          <Option name="application.securityoutboundbindingconfig.signinginfo_0.order" value="1"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.properties_0.name" value="com.ibm.ws.console.webservices.policyset.protectionToken"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.callbackhandler.keystore.keystoreref" value="name=CivisConsumer managementScope=(cell):EntTelVal:(cluster):Civis"/>
+          <Option name="application.securityoutboundbindingconfig.tokengenerator_0.jaasconfig.configname" value="system.wss.generate.x509"/>
+        </Row>
+      </Step>
+    </AdminTask>
+
+ </AdminTaskGroup>
+<Application Path="${ph:DocCambioVersoEAR_Path}" UploadApplication="true" description="" displayName="DocCambioVersoEAR" editionName="">
+    <AppDeploymentTask Name="AppDeploymentOptions">
+      <TaskData>
+        <TaskColumn Name="allowDispatchRemoteInclude" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="allowServiceRemoteInclude" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="asyncRequestDispatchType" Value="DISABLED"/>
+        <TaskColumn Name="buildVersion" Value="Unknown"/>
+        <TaskColumn Name="createMBeansForResources" Value="AppDeploymentOption.Yes"/>
+        <TaskColumn Name="distributeApp" Value="AppDeploymentOption.Yes"/>
+        <TaskColumn Name="edition.desc" Value=""/>
+        <TaskColumn Name="filepermission" Value=".*\.dll=755#.*\.so=755#.*\.a=755#.*\.sl=755"/>
+        <TaskColumn Name="installed.ear.destination" Value="$(APP_INSTALL_ROOT)/clm-aus-022395Cell04"/>
+        <TaskColumn Name="preCompileJSPs" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="reloadEnabled" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="reloadInterval" Value=""/>
+        <TaskColumn Name="useAutoLink" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="useMetaDataFromBinary" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="validateinstall" Value="off"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="CtxRootForWebMod">
+      <TaskData>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+        <TaskColumn Name="web.contextroot" Value="DocCambioVerso"/>
+        <TaskColumn Name="webModule" Value="DocCambioVerso"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="CustomActivationPlan">
+      <TaskData>
+        <TaskColumn Name="activation.plan.add" Value=""/>
+        <TaskColumn Name="activation.plan.remove" Value=""/>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="JSPReloadForWebMod">
+      <TaskData>
+        <TaskColumn Name="jspReloadEnabled" Value="AppDeploymentOption.Yes"/>
+        <TaskColumn Name="jspReloadInterval" Value="10"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+        <TaskColumn Name="webModule" Value="DocCambioVerso"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="ListModules">
+      <TaskData>
+        <TaskColumn Name="AppVersion" Value="14"/>
+        <TaskColumn Name="ModuleVersion" Value="25"/>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="server" Value="WebSphere:cell=clm-aus-022395Cell04,node=AppSrv03-Node,server=server2"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war+WEB-INF/web.xml"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="MapEJBRefToEJB">
+      <TaskData>
+        <TaskColumn Name="EJB" Value=""/>
+        <TaskColumn Name="JNDI" Value="ejbremote/telent/EJBDBInfoUserRemote"/>
+        <TaskColumn Name="ModuleVersion" Value="25"/>
+        <TaskColumn Name="class" Value="it.finanze.entrate.telent.ejb.EJBDBInfoUserRemote"/>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="module.j2ee.version" Value="50"/>
+        <TaskColumn Name="referenceBinding" Value="ejbref/telent/EJBDBInfoUserRemote"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="MapEnvEntryForWebMod">
+      <TaskData>
+        <TaskColumn Name="AppVersion" Value="14"/>
+        <TaskColumn Name="ModuleVersion" Value="25"/>
+        <TaskColumn Name="injection.requested" Value="false"/>
+        <TaskColumn Name="prop.description" Value=""/>
+        <TaskColumn Name="prop.name" Value="configFilePath"/>
+        <TaskColumn Name="prop.type" Value="String"/>
+        <TaskColumn Name="prop.value" Value="/telent/configCICS/"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+        <TaskColumn Name="webModule" Value="DocCambioVerso"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="AppVersion" Value="14"/>
+        <TaskColumn Name="ModuleVersion" Value="25"/>
+        <TaskColumn Name="injection.requested" Value="false"/>
+        <TaskColumn Name="prop.description" Value=""/>
+        <TaskColumn Name="prop.name" Value="certFilePath"/>
+        <TaskColumn Name="prop.type" Value="String"/>
+        <TaskColumn Name="prop.value" Value="/telent/configCICS/"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+        <TaskColumn Name="webModule" Value="DocCambioVerso"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="MapInitParamForServlet">
+      <TaskData>
+        <TaskColumn Name="prop.name" Value="config"/>
+        <TaskColumn Name="prop.value" Value="/WEB-INF/struts-config.xml"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+        <TaskColumn Name="web.servlet" Value="action"/>
+        <TaskColumn Name="webModule" Value="DocCambioVerso"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="prop.name" Value="debug"/>
+        <TaskColumn Name="prop.value" Value="2"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+        <TaskColumn Name="web.servlet" Value="action"/>
+        <TaskColumn Name="webModule" Value="DocCambioVerso"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="prop.name" Value="detail"/>
+        <TaskColumn Name="prop.value" Value="2"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+        <TaskColumn Name="web.servlet" Value="action"/>
+        <TaskColumn Name="webModule" Value="DocCambioVerso"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="prop.name" Value="validate"/>
+        <TaskColumn Name="prop.value" Value="false"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+        <TaskColumn Name="web.servlet" Value="action"/>
+        <TaskColumn Name="webModule" Value="DocCambioVerso"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="MapJaspiProvider">
+      <TaskData>
+        <TaskColumn Name="module" Value="DocCambioVersoEAR"/>
+        <TaskColumn Name="providername" Value=""/>
+        <TaskColumn Name="uri" Value="META-INF/application.xml"/>
+        <TaskColumn Name="usejaspi" Value="JASPI.Inherit"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="providername" Value=""/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+        <TaskColumn Name="usejaspi" Value="JASPI.Inherit"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="MapModulesToServers">
+      <TaskData>
+        <TaskColumn Name="ModuleVersion" Value="25"/>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="moduletype" Value="moduletype.web"/>
+        <TaskColumn Name="moduletypeDisplay" Value="Web Module"/>
+        <TaskColumn Name="server" Value="WebSphere:cell=clm-aus-022395Cell04,node=AppSrv03-Node,server=server2"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="MapResRefToEJB">
+      <TaskData>
+        <TaskColumn Name="AppVersion" Value="14"/>
+        <TaskColumn Name="EJB" Value=""/>
+        <TaskColumn Name="JNDI" Value="wm/default"/>
+        <TaskColumn Name="ModuleVersion" Value="25"/>
+        <TaskColumn Name="auth.props" Value=""/>
+        <TaskColumn Name="dataSourceProps" Value=""/>
+        <TaskColumn Name="injection.requested" Value="false"/>
+        <TaskColumn Name="login.config.name" Value=""/>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="oracleRef" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="referenceBinding" Value="wm/tracciamentoWM"/>
+        <TaskColumn Name="resAuth" Value="Container"/>
+        <TaskColumn Name="resRef.type" Value="commonj.work.WorkManager"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="AppVersion" Value="14"/>
+        <TaskColumn Name="EJB" Value=""/>
+        <TaskColumn Name="JNDI" Value="jms/tracciamentoQueue"/>
+        <TaskColumn Name="ModuleVersion" Value="25"/>
+        <TaskColumn Name="auth.props" Value=""/>
+        <TaskColumn Name="dataSourceProps" Value=""/>
+        <TaskColumn Name="injection.requested" Value="false"/>
+        <TaskColumn Name="login.config.name" Value=""/>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="oracleRef" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="referenceBinding" Value="jms/tracciamentoQueue"/>
+        <TaskColumn Name="resAuth" Value="Container"/>
+        <TaskColumn Name="resRef.type" Value="javax.jms.Queue"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="AppVersion" Value="14"/>
+        <TaskColumn Name="EJB" Value=""/>
+        <TaskColumn Name="JNDI" Value="jms/tracciamentoQCF"/>
+        <TaskColumn Name="ModuleVersion" Value="25"/>
+        <TaskColumn Name="auth.props" Value=""/>
+        <TaskColumn Name="dataSourceProps" Value=""/>
+        <TaskColumn Name="injection.requested" Value="false"/>
+        <TaskColumn Name="login.config.name" Value=""/>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="oracleRef" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="referenceBinding" Value="jms/tracciamentoQCF"/>
+        <TaskColumn Name="resAuth" Value="Container"/>
+        <TaskColumn Name="resRef.type" Value="javax.jms.QueueConnectionFactory"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="AppVersion" Value="14"/>
+        <TaskColumn Name="EJB" Value=""/>
+        <TaskColumn Name="JNDI" Value="jca/cics/eci/cicstvp2"/>
+        <TaskColumn Name="ModuleVersion" Value="25"/>
+        <TaskColumn Name="auth.props" Value=""/>
+        <TaskColumn Name="dataSourceProps" Value=""/>
+        <TaskColumn Name="injection.requested" Value="false"/>
+        <TaskColumn Name="login.config.name" Value=""/>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="oracleRef" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="referenceBinding" Value="jca/cics/cicsvp"/>
+        <TaskColumn Name="resAuth" Value="Application"/>
+        <TaskColumn Name="resRef.type" Value="javax.resource.cci.ConnectionFactory"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="AppVersion" Value="14"/>
+        <TaskColumn Name="EJB" Value=""/>
+        <TaskColumn Name="JNDI" Value="jdbc/civis"/>
+        <TaskColumn Name="ModuleVersion" Value="25"/>
+        <TaskColumn Name="auth.props" Value=""/>
+        <TaskColumn Name="dataSourceProps" Value=""/>
+        <TaskColumn Name="injection.requested" Value="false"/>
+        <TaskColumn Name="login.config.name" Value=""/>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="oracleRef" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="referenceBinding" Value="jdbc/civis"/>
+        <TaskColumn Name="resAuth" Value="Application"/>
+        <TaskColumn Name="resRef.type" Value="javax.sql.DataSource"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="MapRolesToUsers">
+      <TaskData>
+        <TaskColumn Name="role" Value="RIntContPF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="A10|B10|A20|A30|A60|A80|B12|E30"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | | | | | | | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RIntContPNF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="A40|A55|A56"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RIntNoContPF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="A90|C10|E10|A25"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | | | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RIntNoContPNF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="A50|C11|C20|C21|C22|C30|C40|E20"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | | | | | | | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RIntCAF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="D10|D20"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RBanchePoste"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="F10|F20|F30"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RSocNoIntPF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="G40|G60|G91"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RSocNoIntPNF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="G10|G20|G30|G50|G70|G90"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | | | | | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="REntiPub"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="G80"/>
+        <TaskColumn Name="role.group.access.ids" Value=" "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RUffEnt"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="Q10|Q20"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RLocazioniPF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="R20|R30|R60|R80|R91|R94"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | | | | | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RLocazioniPNF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="R10|R40|R41|R50|R70|R90|R92|R93|R83|R86"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | | | | | | | | | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RIFinPF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="S20"/>
+        <TaskColumn Name="role.group.access.ids" Value=" "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RIFinPNF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="S10"/>
+        <TaskColumn Name="role.group.access.ids" Value=" "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RAmministrazione"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="Z10|Z20"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RAssistenza"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="Z30|Z99"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RSoloCont"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="Z40"/>
+        <TaskColumn Name="role.group.access.ids" Value=" "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RNoResidenti"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="W10"/>
+        <TaskColumn Name="role.group.access.ids" Value=" "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RPFFisc"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="I10"/>
+        <TaskColumn Name="role.group.access.ids" Value=" "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RPNFFisc"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="I20"/>
+        <TaskColumn Name="role.group.access.ids" Value=" "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RUffFisc"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="X10"/>
+        <TaskColumn Name="role.group.access.ids" Value=" "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RConsolati"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="Y10"/>
+        <TaskColumn Name="role.group.access.ids" Value=" "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RIntContSO"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="A70"/>
+        <TaskColumn Name="role.group.access.ids" Value=" "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RIntNoContSO"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="A11|A21|A31|B11|C50"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | | | | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RF24PNF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="T10|T20|T30|F40"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | | | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RPNFrimeu"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="V10|V20"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RPFrimeu"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="V21"/>
+        <TaskColumn Name="role.group.access.ids" Value=" "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RAllAuthenticated"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.Yes"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value=""/>
+        <TaskColumn Name="role.group.access.ids" Value=""/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RPNFTobin"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="E40"/>
+        <TaskColumn Name="role.group.access.ids" Value=" "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="role" Value="RInArContPF"/>
+        <TaskColumn Name="role.all.auth.realms" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.all.auth.user" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.everyone" Value="AppDeploymentOption.No"/>
+        <TaskColumn Name="role.group" Value="R84|R87"/>
+        <TaskColumn Name="role.group.access.ids" Value=" | "/>
+        <TaskColumn Name="role.user" Value=""/>
+        <TaskColumn Name="role.user.access.ids" Value=""/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="MapSharedLibForMod">
+      <TaskData>
+        <TaskColumn Name="module" Value="DocCambioVersoEAR"/>
+        <TaskColumn Name="prcess.embedded.config" Value="false"/>
+        <TaskColumn Name="sharedLibName" Value="WebSphere:name=SharedLib"/>
+        <TaskColumn Name="sharedlib.in.process.embdded.config" Value="WebSphere:name=SharedLib"/>
+        <TaskColumn Name="uri" Value="META-INF/application.xml"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="prcess.embedded.config" Value="false"/>
+        <TaskColumn Name="sharedLibName" Value=""/>
+        <TaskColumn Name="sharedlib.in.process.embdded.config" Value=""/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="MapWebModToVH">
+      <TaskData>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+        <TaskColumn Name="virtualHost" Value="default_host"/>
+        <TaskColumn Name="webModule" Value="DocCambioVerso"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="MetadataCompleteForModules">
+      <TaskData>
+        <TaskColumn Name="lockDeploymentDescriptor" Value="false"/>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="ModuleBuildID">
+      <TaskData>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="moduleBuildID" Value=""/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="SharedLibRelationship">
+      <TaskData>
+        <TaskColumn Name="compUnitName" Value=""/>
+        <TaskColumn Name="matchTarget" Value="AppDeploymentOption.Yes"/>
+        <TaskColumn Name="module" Value="DocCambioVersoEAR"/>
+        <TaskColumn Name="origRelationship" Value=""/>
+        <TaskColumn Name="prcess.embedded.config" Value="false"/>
+        <TaskColumn Name="relationship" Value=""/>
+        <TaskColumn Name="uri" Value="META-INF/application.xml"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="compUnitName" Value=""/>
+        <TaskColumn Name="matchTarget" Value="AppDeploymentOption.Yes"/>
+        <TaskColumn Name="module" Value="DocCambioVerso"/>
+        <TaskColumn Name="origRelationship" Value=""/>
+        <TaskColumn Name="prcess.embedded.config" Value="false"/>
+        <TaskColumn Name="relationship" Value=""/>
+        <TaskColumn Name="uri" Value="DocCambioVerso.war,WEB-INF/web.xml"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="WebServicesClientBindDeployedWSDL">
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_Deployed_WSDL" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/Protocollazione"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_Deployed_WSDL" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/CombinationService"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_Deployed_WSDL" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/DocumentiServiceService"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_Deployed_WSDL" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/WsAddressingService"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_Deployed_WSDL" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/DocumentiEjbService"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="WebServicesClientBindPortInfo">
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_BasicAuth_ID" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_BasicAuth_Password" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Overridden_BindingNamespace" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Overridden_Endpoint" Value="http://www.example.org/Protocollazione"/>
+        <TaskColumn Name="webservices.cfgbnd_Port" Value="{http://www.sogei.it/Protocollazione/}ProtocollazioneSOAP"/>
+        <TaskColumn Name="webservices.cfgbnd_SSL_Config" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Timeout" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/Protocollazione"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_BasicAuth_ID" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_BasicAuth_Password" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Overridden_BindingNamespace" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Overridden_Endpoint" Value="http://26.2.85.213:9084/WsCombination/CombinationService"/>
+        <TaskColumn Name="webservices.cfgbnd_Port" Value="{http://wscombination.protomassiva.sogei.it/}CombinationPort"/>
+        <TaskColumn Name="webservices.cfgbnd_SSL_Config" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Timeout" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/CombinationService"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_BasicAuth_ID" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_BasicAuth_Password" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Overridden_BindingNamespace" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Overridden_Endpoint" Value="http://localhost:9087/NSD/DocumentiServiceService"/>
+        <TaskColumn Name="webservices.cfgbnd_Port" Value="{http://webService.protocollo.entrate.it/}DocumentiServicePort"/>
+        <TaskColumn Name="webservices.cfgbnd_SSL_Config" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Timeout" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/DocumentiServiceService"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_BasicAuth_ID" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_BasicAuth_Password" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Overridden_BindingNamespace" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Overridden_Endpoint" Value="http://localhost:9089/WsAddressing/WsAddressingService"/>
+        <TaskColumn Name="webservices.cfgbnd_Port" Value="{http://wsaddressing.protomassiva.sogei.it/}WsAddressingPort"/>
+        <TaskColumn Name="webservices.cfgbnd_SSL_Config" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Timeout" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/WsAddressingService"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_BasicAuth_ID" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_BasicAuth_Password" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Overridden_BindingNamespace" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Overridden_Endpoint" Value="https://servizisicuri.finanze.it:443/EjbDocumenti_HTTPRouter/DocumentiEjbService"/>
+        <TaskColumn Name="webservices.cfgbnd_Port" Value="{http://ejb.protocollo.entrate.it/}DocumentiEjbPort"/>
+        <TaskColumn Name="webservices.cfgbnd_SSL_Config" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Timeout" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/DocumentiEjbService"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="WebServicesClientBindPreferredPort">
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Port" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Port_Type" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value=""/>
+      </TaskData>
+    </AppDeploymentTask>
+    <AppDeploymentTask Name="WebServicesClientCustomProperty">
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Port" Value="{http://www.sogei.it/Protocollazione/}ProtocollazioneSOAP"/>
+        <TaskColumn Name="webservices.cfgbnd_Property" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Value" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/Protocollazione"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Port" Value="{http://wscombination.protomassiva.sogei.it/}CombinationPort"/>
+        <TaskColumn Name="webservices.cfgbnd_Property" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Value" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/CombinationService"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Port" Value="{http://webService.protocollo.entrate.it/}DocumentiServicePort"/>
+        <TaskColumn Name="webservices.cfgbnd_Property" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Value" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/DocumentiServiceService"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Port" Value="{http://wsaddressing.protomassiva.sogei.it/}WsAddressingPort"/>
+        <TaskColumn Name="webservices.cfgbnd_Property" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Value" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/WsAddressingService"/>
+      </TaskData>
+      <TaskData>
+        <TaskColumn Name="webservices.cfgbnd_EJB" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Module_Name" Value="DocCambioVerso.war"/>
+        <TaskColumn Name="webservices.cfgbnd_Port" Value="{http://ejb.protocollo.entrate.it/}DocumentiEjbPort"/>
+        <TaskColumn Name="webservices.cfgbnd_Property" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Value" Value=""/>
+        <TaskColumn Name="webservices.cfgbnd_Web_Service" Value="service/DocumentiEjbService"/>
+      </TaskData>
+    </AppDeploymentTask>
+    <Deployment>
+      <ApplicationDeployment allowDispatchRemoteInclude="false" allowServiceRemoteInclude="false" appContextIDForSecurity="href:clm-aus-022395Cell04/DocCambioVersoEAR" asyncRequestDispatchType="DISABLED" autoLink="false" backgroundApplication="false" binariesURL="$(APP_INSTALL_ROOT)/clm-aus-022395Cell04/DocCambioVersoEAR.ear" createMBeansForResources="true" enableClientModule="false" enableDistribution="true" expandSynchronously="false" filePermission=".*\.dll=755#.*\.so=755#.*\.a=755#.*\.sl=755" recycleOnUpdate="PARTIAL" reloadEnabled="false" reloadInterval="3" standaloneModule="false" startOnDistribute="false" startingWeight="10" useMetadataFromBinaries="false" warClassLoaderPolicy="MULTIPLE" zeroBinaryCopy="false" zeroEarCopy="false">
+        <Classloader mode="PARENT_FIRST">
+          <LibraryRef libraryName="SharedLib" sharedClassloader="true"/>
+        </Classloader>
+        <DeploymentTargetMapping enable="true">
+          <ServerTarget name="server2" nodeName="AppSrv03-Node"/>
+        </DeploymentTargetMapping>
+        <Property name="metadata.complete" required="false" value="false"/>
+        <WebModuleDeployment classloaderMode="PARENT_FIRST" containsEJBContent="0" startingWeight="10000" uri="DocCambioVerso.war">
+          <Classloader mode="PARENT_FIRST"/>
+          <DeploymentTargetMapping enable="true">
+            <ServerTarget name="server2" nodeName="AppSrv03-Node"/>
+          </DeploymentTargetMapping>
+        </WebModuleDeployment>
+      </ApplicationDeployment>
+      <ServerTarget name="server2" nodeName="AppSrv03-Node"/>
+    </Deployment>
+  </Application>
+</Phurnace>

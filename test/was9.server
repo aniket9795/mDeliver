@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Server AdminHost="clm-aus-022395.bmc.com" AdminPort="8887" AppserverVendor="websphere90" BMAVersion="4.8.0" OriginalBMAVersion="4.8.0">
+  <TokenSet Description="Default Token Set" Name="Default Tokens"/>
+  <SnapshotOutputFile>
+    <FilenamePattern/>
+  </SnapshotOutputFile>
+  <SnapshotFilters>
+    <SnapshotFilter BMAVersion="4.8.0" CellScopedResources="true" Description="" Name="Application" OriginalBMAVersion="4.8.0" NodeScopedResources="true" SnapshotDefaultFilter="true">
+      <SnapshotServer Name="dmgr"/>
+      <SnapshotServer Name="nodeagent"/>
+      <SnapshotServer Name="server1"/>
+      <SnapshotCluster Skip="true"/>
+      <SnapshotApplication Name="example" Include="false"/>
+      <SnapshotMBean Name="Application" Include="true"/>
+      <SnapshotBusinessLevelApplication Skip="true"/>
+    </SnapshotFilter>
+  </SnapshotFilters>
+  <ReportOutputFile/>
+  <TokenSet Description="" IsDefault="true" Name="Application">
+    <Token Encrypt="false" Key="sample_Path" Value="D:\Sample_Apps\sample.war" BMAVersion="4.8.0" OriginalBMAVersion="4.8.0"/>
+    <Token Key="example_Path" Value="D:\Sample_Apps\example.ear" BMAVersion="4.8.0" OriginalBMAVersion="4.8.0"/>
+  </TokenSet>
+  <TokenSet Description="" Name="clust">
+    <Token Encrypt="false" Key="cluster1" Value="" BMAVersion="4.8.0" OriginalBMAVersion="4.8.0"/>
+  </TokenSet>
+  <Node Name="AppSrv01-Node" ClassificationRef="#//@websphereServer/@classifications.0"/>
+  <Node Name="Dmgr01-Node" ClassificationRef="#//@websphereServer/@classifications.1"/>
+  <SnapshotNode Name="AppSrv01-Node"/>
+  <InstallNode Name="AppSrv01-Node"/>
+  <Clusters/>
+  <TrustStore/>
+  <SslProperties/>
+  <NodeClassification Name="APPLICATION_SERVER2">
+    <NodeRef>#//@websphereServer/@nodes.0</NodeRef>
+  </NodeClassification>
+  <NodeClassification Name="APPLICATION_SERVER1">
+    <NodeRef>#//@websphereServer/@nodes.1</NodeRef>
+  </NodeClassification>
+</Server>
